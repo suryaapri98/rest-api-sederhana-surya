@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
@@ -16,7 +15,7 @@ let nextId = users.length + 1;
 app.get('/', (req, res) => {
     res.status(200).json({
         success: true,
-        message: 'Rest API is running. Check /users endpoint.'
+        message: 'Rest API is running. Check /api/users endpoint.'
     });
 });
 
@@ -47,10 +46,11 @@ app.post('/users', (req, res) => {
         name,
         email
     };
-    users.push(newUser);
+
+    users.push(newUser); 
     res.status(201).json({
         success: true,
-        message: 'User created succesfully.',
+        message: 'User created successfully.',
         data: newUser
     });
 });
@@ -67,7 +67,7 @@ app.get('/users/:id', (req, res) => {
     if (!user) {
         return res.status(404).json({
             success: false,
-            message: 'User with ID ${id} not found.'
+            message: User with ID ${id} not found.
         });
     }
     res.status(200).json({
@@ -75,9 +75,5 @@ app.get('/users/:id', (req, res) => {
         data: user
     });
 });
-
-//app.listen(port, () => {
-//    console.log('Server is running on http://localhost:${port}');
-//});
 
 module.exports = app;
