@@ -67,7 +67,7 @@ app.get('/users/:id', (req, res) => {
     if (!user) {
         return res.status(404).json({
             success: false,
-            message: 'User with ID ${id} not found.'
+            message: `User with ID ${id} not found.`
         });
     }
     res.status(200).json({
