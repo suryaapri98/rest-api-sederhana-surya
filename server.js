@@ -76,4 +76,7 @@ app.get('/users/:id', (req, res) => {
     });
 });
 
-module.exports = app;
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    
+})
